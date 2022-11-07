@@ -24,17 +24,24 @@ function buttonAction()
 function send_request(method,url,data)
 {
     let xhttp = new XMLHttpRequest();
-    xhttp.open(method,url);
+    xhttp.open(method,url,false);
     if ( method == "PUT" ) {
         xhttp.setRequestHeader('Content-Type','application/json');
     }
     xhttp.send(data);
+    ret = "";
+    if(xhttp.readyState == 4 && xhttp.status == 200)
+      ret = xhttp.responseText;
+    else
+      alert("CGI '" + uri + "' failed!");
+
+    return ret;
 }
 
-function buttonGet() {
-    send_request("GET",'/HomeSpace/button_actions');
+async function buttonGet() {
+    await send_request("GET",'/HomeSpace/button_actions');
 }
 
-function buttonPut() {
-    send_request("PUT",'/HomeSpace/button_actions',"{\"var0\":1000}");
+async function buttonPut() {
+    await send_request("PUT",'/HomeSpace/button_actions',"{\"var0\":1000}");
 }
