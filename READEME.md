@@ -9,3 +9,7 @@ flask --debug --app flask-swagger/ run
 Print routes:
 
 flask --debug --app flask-swagger/ route
+
+Tailwind build after executable download:
+
+tailwindcss -o flask_swag_example/flask-swagger/static/css/style.css
