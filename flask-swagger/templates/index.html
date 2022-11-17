@@ -8,11 +8,24 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/static/js/send.js"></script>
 <body>
-   <h1>This is the body</h1>
+   <h1>Section One</h1>
    <div>
-    <button class="... focus:ring-2 ring-red-200" id="button0", onclick="buttonAction()">AjaxPUT</button>
-    <button class="... focus:ring-2 ring-red-200" id="button1", onclick="buttonGet()">GET</button>
-    <button class="... focus:ring-2 ring-red-200" id="button2", onclick="buttonPut()">PUT</button>
+    <button class="bg-sky-500/75 w-32 focus:ring-2 ring-red-800 shadow-2xl" id="button0", onclick="buttonAction()">AjaxPUT</button>
+    <button class="bg-sky-500/75 w-32 focus:ring-2 ring-red-800 shadow-2xl" id="button1", onclick="buttonGet()">GET</button>
+    <button class="bg-sky-500/75 w-32 focus:ring-2 ring-red-800 shadow-2xl" id="button2", onclick="buttonPut()">PUT</button>
    </div>
+
+   <div><h1>Section Two</h1></div>
+   <div>
+    <button class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 shadow-2xl" id="button0", onclick="buttonAction()">AjaxPUT</button>
+    <button class="px-96 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" id="button1", onclick="buttonGet()">GET</button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-2xl" id="button2", onclick="buttonPut()">PUT</button>
+   </div>
+
+<div>Grid (Left Aligned)</p>
+    <button class="col-span-3 rounded-lg px-4 py-2 bg-green-700 text-green-100 hover:bg-green-800 duration-300">Submit</button>
+    <button class="col-span-3 rounded-lg px-4 py-2 bg-green-700 text-green-100 hover:bg-green-800 duration-300">Submit</button>
+    <button class="col-span-3 rounded-lg px-4 py-2 bg-green-700 text-green-100 hover:bg-green-800 duration-300">Submit</button></div>
+
 </body>
 </html>
