@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secondary Welcome Page</title>
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+<script src="/static/js/htmx.min.js"></script>
+<script src="/static/js/json-enc.js"></script>
+<body>
+
+   <div><h1>Section One</h1></div>
+   <div>
+    <button hx-put="/SecondSpace/test" hx-target="#res" hx-ext='json-enc' hx-vals='{"outer":{"mid0":{"val0":0,"spaces":"yes","unit4":true},"mid1":{"val0":-200,"spaces":"yes","unit4":true}}}' class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 shadow-2xl" id="button0">Button1</button>
+    <button hx-put="/SecondSpace/test" hx-target="#res" hx-ext='json-enc' hx-vals='{"outer":{"mid0":{"val0":100,"spaces":"no","unit4":false},"mid1":{"val0":40,"spaces":"yes","unit4":true}}}' class="px-96 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" id="button1">Button2</button>
+    <button hx-put="/SecondSpace/test" hx-target="#res" hx-ext='json-enc' hx-vals='{"outer":{"mid0":{"val0":200,"spaces":"maybe","unit4":true},"mid1":{"val0":80,"spaces":"yes","unit4":true}}}' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-2xl" id="button2">Button3</button>
+   </div>
+   <div><label for="res">Button Responses:</label></div>
+   <textarea id="res"
+          rows="5" cols="33" style="height: 336px;">
+    </textarea>
+
+</body>
+</html>
