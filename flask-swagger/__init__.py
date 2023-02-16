@@ -2,8 +2,11 @@
 
 from flask import Flask, render_template, make_response, url_for, request
 from flask_restx import Resource, Api, fields
+import sys
 
 print("Initializing")
+def journal_print(*args,**kwargs):
+    print(*args,**kwargs,file=sys.stderr)
 
 def make_endpoints(ein_api):
     n_space = ein_api.namespace('NamenSpace', description='Das ist gut')
@@ -12,7 +15,38 @@ def make_endpoints(ein_api):
         'var0': fields.Integer(readonly=True, description='A read only variable of type Int'),
         'var1': fields.String(required=True, description='A read/write required variable of type String')
     })
+    second_name_space = ein_api.namespace('SecondSpace', description='This is another namespace')
 
+    lowest_fields = ein_api.model('Lower Values',
+    {
+        'val0': fields.Integer(),
+        'spaces': fields.String(required=True),
+        'unit4': fields.Boolean()
+    })
+
+    mid_fields = ein_api.model('Mid Values',
+    {
+        'mid0': fields.Nested(lowest_fields),
+        'mid1': fields.Nested(lowest_fields)
+    })
+
+    outer_fields = ein_api.model('Outer Value',
+    {
+        'outer': fields.Nested(mid_fields)
+    })
+    @second_name_space.route('/')
+    class Home_Space(Resource):
+        def get(self):
+            return make_response(render_template('second_index.html'))
+
+    @second_name_space.route('/test')
+    class Second_Name(Resource):
+        '''Second NameSpace'''
+        @second_name_space.expect(outer_fields)
+        def put(self):
+            data=ein_api.payload
+            journal_print(data)
+            return data
     @home_name_space.route('/')
     class Home_Space(Resource):
         def get(self):
